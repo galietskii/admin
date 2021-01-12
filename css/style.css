@@ -1,0 +1,646 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0 auto;
+    
+}
+body {
+    background-color: rgba(199, 189, 189, 0.466);
+}
+h1, h2, h3, h4, h5, h6, p, a {
+    color: rgba(54, 54, 54, 0.925);
+    font-family: Arial, Helvetica, sans-serif;
+}
+li {
+    list-style-type: none;
+}
+a {
+    text-decoration: none;
+}
+.header {
+    position: fixed;
+}
+.widget {
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    display: inline-block;
+    height: 1000px;
+    background-color: white;
+}
+.widget-title {
+    margin: 30px 0 30px 30px;
+}
+.widget-title::after {
+    content: '';
+    display: block;
+    position: absolute;
+    border-bottom: 1px solid rgb(133, 127, 127);
+    width: 170px;
+    left: 0;
+    opacity: 0.5;
+    margin-top: 20px;
+}
+.widget-list {
+    margin-top: 60px;
+}
+.widget-list li {
+    margin-top: 20px;
+    margin-left: 20px;
+}
+.widget-list a {
+    color: gray;
+    background-color: transparent;
+    padding: 10px 30px 10px 10px;
+    transition-duration: 0.5s;
+
+}
+.widget-list a:hover {
+    color: white;
+    background-color: rgb(194, 0, 107);
+    transition-duration: 0.5s;
+}
+.icon {
+   margin-right: 10px;
+}
+.main {
+    position: relative;
+    margin-left: 12%;
+    padding: 1px;
+}
+.block-main {
+    margin-top: 30px;
+    margin-left: 60px;
+}
+
+.about-dashboard {
+    background-color: white;
+    display: inline-block;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+.block-investor {
+    padding: 20px 35px 20px 120px;
+}
+.all-block-flex {
+    text-align: center;
+}
+.about-dashboard {
+    margin-top: 80px;
+    margin-left: 20px;
+}
+.title-name {
+    font-size: 12px;
+    text-align: right;
+}
+.text-name {
+    font-size: 23px;
+}
+.block-about-used {
+    position: relative;
+    margin-left: 10px;
+    margin-bottom: 20px;
+    text-align: left;
+}
+.text-about-used {
+    font-size: 10px;
+    color:  rgba(10, 9, 9, 0.911);
+}
+.text-about-used::before {
+    content: '';
+    display: block;
+    border-bottom: 1px solid rgb(133, 127, 127);
+    width: 185px;
+    opacity: 0.5;
+    margin-bottom: 20px;
+    margin-left: 10px;
+}
+.image {
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    left: 10px;
+    bottom: 85px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+.investors-main {
+    margin-left: 45px;
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-around;
+}
+.investors-blocks {
+    position: relative;
+    background-color: white;
+    display: inline;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+.graph-image {
+    position: absolute;
+    top: -20px;
+    left: 20px;
+    width: 320px;
+    height: 150px;
+}
+.inside-block {
+    margin-left: 20px;
+    margin-right: 145px;
+}
+.title-investor-big {
+    margin-top: 150px;
+}
+.text-sale {
+    margin-bottom: 20px;
+}
+.first-block-tasks {
+    position: relative;
+    display: block;
+    
+}
+.form-block-tasks {
+    margin-left: 10px;
+}
+.text-update {
+    margin-top: 30px;
+    margin-bottom: 20px;
+    font-size: 12px;
+}
+.text-update::before {
+    content: '';
+    display: block;
+    position: absolute;
+    border-bottom: 1px solid rgb(133, 127, 127);
+    width: 300px;
+    opacity: 0.5;
+    bottom: 50px;
+    margin-left: 10px;
+}
+.tasks-block {
+    margin-left: 60px;
+    display: flex;
+}
+.header-tasks-block {
+    background-color: rgb(247, 158, 26);
+    display: inline-block;
+    position: absolute;
+    z-index: 111;
+    top: 20px;
+    margin-left: 15px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+.all-tasks {
+    display: flex;
+    padding: 20px 60px 20px 10px;
+}
+.text-tasks {
+    color: white;
+}
+.menu a {
+    padding: 10px 30px;
+    color: white;
+}
+.menu a:hover {
+    background-color: rgba(255, 189, 66, 0.658);
+}
+.main-block-tasks {
+    background-color: white;
+    display: inline-block;
+    position: relative;
+    margin-top: 40px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+.main-block-tasks form {
+    margin: 50px 25px 20px 40px; 
+}
+.main-block-stats {
+    background-color: white;
+    display: inline-block;
+    position: relative;
+    margin-top: 40px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+.form-text {
+    margin-left: 10px;
+}
+input {
+    padding-right: 10px;
+    margin-right: 10px;
+    margin-top: 20px;
+    position: relative;
+}
+.checkbox {
+    position: relative;
+}
+.checkbox::before {
+    content: '';
+    display: block;
+    position: absolute;
+    border-bottom: 1px solid rgb(133, 127, 127);
+    width: 450px;
+    opacity: 0.5;
+    bottom: 30px;
+    left: -15px;
+}
+.square {
+    position: relative;
+    left: 10px;
+    color: green;
+    font-size: 20px;
+}
+.circle {
+    margin-left: 30px;
+    font-size: 20px;
+    background-color: white;
+    color: red;
+    border-radius: 40px;
+    border: none;
+}
+.title-stats {
+    color: white;
+    font-size: 15px;
+    font-weight: 100;
+}
+.stats-block {
+    background-color: blue;
+}
+.text-stats {
+    display: block;
+    color: white;
+    margin-top: 10px;
+    font-size: 12px;
+}
+.all-stats {
+    padding: 20px 280px 10px 10px;
+}
+.titles {
+    display: flex;
+    margin: 50px 25px 20px 40px; 
+}
+.second-block {
+    background-color: rgb(56, 56, 228);
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+.title-employees {
+    color: white;
+    font-size: 15px;
+    font-weight: 200;
+}
+.text-employees {
+    color: white;
+    font-size: 12px;
+}
+.title-employees {
+    margin-bottom: 10px;
+}
+.name-stats {
+    margin-top: 100px;
+    display: flex;
+}
+.name-stats h5{
+    color:rgb(56, 56, 228);
+}
+.all-name {
+    position: relative;
+    display: flex;
+    margin-top: 20px;
+    
+}
+h6 {
+    font-size: 13px;
+}
+h6::before {
+    content: '';
+    display: block;
+    position: absolute;
+    border-bottom: 1px solid rgb(133, 127, 127);
+    width: 500px;
+    opacity: 0.5;
+    bottom: 25px;
+    left: 20px;
+}
+.width {
+    margin-right: 560px;
+    margin-bottom: 35px;
+}
+.footer {
+    position: relative;
+    left: 0;
+    display: flex;
+    margin-top: 50px;
+    border-top: 2px solid rgba(199, 189, 189, 0.466);
+    padding-top: 50px;
+    margin-bottom: 30px;
+}
+
+.footer ul a {
+    font-weight: 600;
+    padding-right: 30px;
+    text-transform: uppercase;
+}
+.bars {
+    display: none;
+}
+
+
+/* FORM */
+.form-main {
+    display: flex;
+    justify-content: space-around;
+}
+/* form block */
+.first-input {
+    margin-left: 0;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    width: 236px;
+    outline: none;
+}
+.first-inputs {
+    display: flex;
+    justify-content: space-around;
+
+}
+.form-stats {
+    padding-top: 100px;
+}
+.form-block {
+    width: 726px;
+    padding: 20px 0 10px 10px;
+    background-color:  rgb(194, 0, 107);
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+.second-inputs {
+    display: flex;
+    justify-content: space-around;
+}
+.second-input {
+    margin-left: 0;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    width: 359px;
+    outline: none;
+}
+
+.third-input {
+    margin-left: 0;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    width: 737px;
+    outline: none;
+}
+.fourth-input {
+    margin-left: 0;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    width: 236px;
+    outline: none;
+}
+.fifth-input {
+    margin-left: 0;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    width: 737px;
+    outline: none;
+}
+.button {
+    text-transform: uppercase;
+    padding: 10px 30px;
+    color: white;
+    background-color: rgb(194, 0, 107);
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    border: none;
+    outline: none;
+    display: flex;
+    justify-content: right;
+    margin-bottom: 20px;
+}
+/* person block */
+.about-person {
+    margin-top: 80px;
+}
+.person {
+    position: relative;
+    display: inline-block;
+    background-color: white;
+    text-align: center;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+.person img {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    left: 150px;
+    top: -60px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+.person h5 {
+    text-transform: uppercase;
+    margin-top: 60px;
+}
+.person h4 {
+    margin-top: 20px;
+}
+.person p {
+    margin-top: 20px;
+}
+@media (max-width: 801px) {
+    .all-block-flex {
+        text-align: center;
+        margin-left: 10%;
+    }
+    .graph-image {
+        position: absolute;
+        top: -20px;
+        left: 14px;
+        width: 161px;
+        height: 114px;
+    }
+    .inside-block {
+        margin-left: 21px;
+        margin-right: 22px;
+    }
+    .text-sale {
+        margin-bottom: 20px;
+        font-size: 12px;
+    }
+    .title-investor-big {
+        margin-top: 117px;
+    }
+    .investors-main {
+        margin-left: 12%;
+    }
+    .text-update::before { 
+        width: 133px;
+    }
+    .tasks-block {
+        text-align: center;
+        display: block;
+    }
+    .tasks-block {
+        margin-left: 10%;
+    }
+    .title-employees {
+        color: white;
+        font-size: 15px;
+        text-align: left;
+        font-weight: 200;
+    }
+    .footer ul a {
+        font-weight: 600;
+        padding-right: 8px;
+        font-size: 13px;
+        text-transform: uppercase;
+    }
+    .form-main {
+        display: flex;
+        justify-content: space-around;
+        flex-direction: column-reverse;
+    }
+    .main-title {
+        margin-left: 29px;
+    }
+    .form-block {
+        width: 588px;
+        padding: 20px 0 10px 10px;
+        background-color: rgb(194, 0, 107);
+        box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    }
+    .about-person {
+        margin-top: 10%;
+        margin-left: 25%;
+    }
+    .form-block-tasks {
+        margin-left: 80px;
+    }
+    .first-input {
+        margin-left: 0;
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        width: 190px;
+        outline: none;
+    }
+    .second-input {
+        margin-left: 0;
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        width: 289px;
+        outline: none;
+    }
+    .third-input {
+        margin-left: 0;
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        width: 600px;
+        outline: none;
+    }
+    .fourth-input {
+        margin-left: 0;
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        width: 190px;
+        outline: none;
+    }
+    .fifth-input {
+        margin-left: 0;
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        width: 600px;
+        outline: none;
+    }
+}
+@media (max-width: 650px) {
+    .header {
+        display: none;
+    }
+    .main {
+        position: relative;
+        margin-left: auto;
+        padding: 1px;
+    }
+    .all-block-flex {
+        text-align: center;
+        margin-left: auto;
+    }
+    .investors-main {
+        margin-left: auto;
+    }
+    .tasks-block {
+        margin-left: auto;
+    }
+    .block-main {
+        margin-top: 30px;
+        margin-left: 10%;
+        text-align: left;
+    }
+    .bars {
+        display: inline-block;
+    }
+    @media (max-width: 500px) {
+        .about-dashboard {
+            margin-top: 80px;
+            margin-left: auto;
+        }
+        .block-investor {
+            padding: 20px 35px 20px 98px;
+        }
+        .investors-main {
+            display: block;
+        }
+        .investors-blocks {
+            position: relative;
+            background-color: white;
+            display: block;
+            box-shadow: 0 0 10px rgba(0,0,0,0.5);
+        }
+        .graph-image {
+            position: absolute;
+            top: -20px;
+            left: 14px;
+            width: 441px;
+            height: 200px;
+        }
+        .investors-blocks {
+            margin-top: 194px;
+        }
+        .title-investor-big {
+            margin-top: 117px;
+            padding-top: 201px;
+        }
+        .text-update::before {
+            width: 400px;
+            bottom: 28px;
+        }
+        .menu a {
+            padding: 10px 20px;
+            color: white;
+        }
+        .form p input {
+            font-size: 10px;
+        }
+        .width {
+            margin-right: 480px;
+            margin-bottom: 40px;
+        }
+        .all-stats {
+            padding: 20px 200px 10px 10px;
+        }
+        h6::before {
+            width: 438px;
+        }
+
+    }
+    @media (max-width: 499px) {
+        .about-dashboard {
+            display: block;
+        }
+    }
+}
