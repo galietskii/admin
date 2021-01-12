@@ -7,6 +7,7 @@
 body {
     background-color: rgba(199, 189, 189, 0.466);
     min-width: 500px;
+    max-width: 90%;
 }
 h1, h2, h3, h4, h5, h6, p, a {
     color: rgba(54, 54, 54, 0.925);
@@ -641,7 +642,63 @@ h6::before {
     }
     @media (max-width: 499px) {
         .about-dashboard {
+            display: table;
+        }
+        .block-investor {
+            padding: 20px 34px 20px 205px;
+        }
+        .text-update::before {
+            width: 365px;
+            bottom: 28px;
+        }
+        .graph-image {
+            position: absolute;
+            top: -20px;
+            left: 14px;
+            width: 379px;
+            height: 200px;
+        }
+        .investors-main {
+            display: table;
+        }
+        .text-sale {
+            margin-bottom: 20px;
+            font-size: 12px;
+            margin-right: 218px;
+        }
+        .main-block-tasks form {
+            margin: 50px 29px 20px 34px;
+        }
+        form p {
+            font-size: 10px;
+        }
+        .checkbox::before {
+            content: '';
             display: block;
+            position: absolute;
+            border-bottom: 1px solid rgb(133, 127, 127);
+            width: 368px;
+            opacity: 0.5;
+            bottom: 30px;
+            left: -15px;
+        }
+        .menu a {
+            font-size: 10px;
+        }
+        .all-tasks {
+            display: flex;
+            padding: 9px 0 20px 0px;
+            width: 376px;
+        }
+        .all-stats {
+            padding: 20px 122px 10px 10px;
+        }
+        .width {
+            margin-right: 402px;
+            margin-bottom: 40px;
+        }
+        h6::before {
+            width: 360px;
         }
     }
 }
