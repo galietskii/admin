@@ -4,8 +4,21 @@
     <meta charset="UTF-8">
     <script src="https://kit.fontawesome.com/b1a6654a6a.js" crossorigin="anonymous"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="WebRTC code samples">
+    <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1, maximum-scale=1">
+    <meta itemprop="description" content="Client-side WebRTC code samples">
+    <meta itemprop="image" content="../../../images/webrtc-icon-192x192.png">
+    <meta itemprop="name" content="WebRTC code samples">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta id="theme-color" name="theme-color" content="#ffffff">
+
+    <base target="_blank">
     <title>Dashboard</title>
     <link rel="stylesheet" href="css/style.css">
+    
+    <link rel="icon" sizes="192x192" href="../../../images/webrtc-icon-192x192.png">
+    <link href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="../../../css/main.css">
     <style>
     video{
           transform: scaleX(-1);
@@ -15,51 +28,6 @@
   -webkit-transform: scaleX(-1);
 }
     </style>
-    <script>
-  window.onload = function () {
-    var canvas = document.getElementById('canvas');
-    var video = document.getElementById('video');
-    var button = document.getElementById('button');
-    var allow = document.getElementById('allow');
-    var context = canvas.getContext('2d');
-    var videoStreamUrl = false;
-
-    // функция которая будет выполнена при нажатии на кнопку захвата кадра
-    var captureMe = function () {
-      if (!videoStreamUrl) alert('То-ли вы не нажали "разрешить" в верху окна, то-ли что-то не так с вашим видео стримом')
-      // переворачиваем canvas зеркально по горизонтали (см. описание внизу статьи)
-      // отрисовываем на канвасе текущий кадр видео
-      context.drawImage(video, 0, 0, video.width, video.height);
-      // получаем data: url изображения c canvas
-      var base64dataUrl = canvas.toDataURL('image/png');
-      context.setTransform(1, 0, 0, 1, 0, 0); // убираем все кастомные трансформации canvas
-      // на этом этапе можно спокойно отправить  base64dataUrl на сервер и сохранить его там как файл (ну или типа того) 
-      // но мы добавим эти тестовые снимки в наш пример:
-      var img = new Image();
-      img.src = base64dataUrl;
-      window.document.body.appendChild(img);
-    }
-
-    button.addEventListener('click', captureMe);
-
-    // navigator.getUserMedia  и   window.URL.createObjectURL (смутные времена браузерных противоречий 2012)
-    navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
-    window.URL.createObjectURL = window.URL.createObjectURL || window.URL.webkitCreateObjectURL || window.URL.mozCreateObjectURL || window.URL.msCreateObjectURL;
-
-    // запрашиваем разрешение на доступ к поточному видео камеры
-    navigator.getUserMedia({video: true}, function (stream) {
-      // разрешение от пользователя получено
-      // скрываем подсказку
-      allow.style.display = "none";
-      // получаем url поточного видео
-      videoStreamUrl = window.URL.createObjectURL(stream);
-      // устанавливаем как источник для video 
-      video.src = videoStreamUrl;
-    }, function () {
-      console.log('что-то не так с видеостримом или пользователь запретил его использовать :P');
-    });
-  };
-</script>
 </head>
 <body>
     <header class="header">
@@ -246,5 +214,6 @@
    
     <script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
     <script src="app.js"> </script>
+    <script src="../../../js/lib/ga.js"></script>
 </body>
 </html>
