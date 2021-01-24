@@ -17,48 +17,51 @@ function t2() {
  }
  }
  document.querySelector('.circle').onclick = t2;
-window.onload = function () {
-    var canvas = document.getElementById('canvas');
-    var video = document.getElementById('video');
-    var button = document.getElementById('button');
-    var allow = document.getElementById('allow');
-    var context = canvas.getContext('2d');
-    var videoStreamUrl = false;
+'use strict';
 
-    // функция которая будет выполнена при нажатии на кнопку захвата кадра
-    var captureMe = function () {
-      if (!videoStreamUrl) alert('То-ли вы не нажали "разрешить" в верху окна, то-ли что-то не так с вашим видео стримом')
-      // переворачиваем canvas зеркально по горизонтали (см. описание внизу статьи)
-      context.translate(canvas.width, 0);
-      context.scale(-1, 1);
-      // отрисовываем на канвасе текущий кадр видео
-      context.drawImage(video, 0, 0, video.width, video.height);
-      // получаем data: url изображения c canvas
-      var base64dataUrl = canvas.toDataURL('image/png');
-      context.setTransform(1, 0, 0, 1, 0, 0); // убираем все кастомные трансформации canvas
-      // на этом этапе можно спокойно отправить  base64dataUrl на сервер и сохранить его там как файл (ну или типа того) 
-      // но мы добавим эти тестовые снимки в наш пример:
-      var img = new Image();
-      img.src = base64dataUrl;
-      window.document.body.appendChild(img);
-    }
+// Put variables in global scope to make them available to the browser console.
+const constraints = window.constraints = {
+  audio: false,
+  video: true
+};
 
-    button.addEventListener('click', captureMe);
+function handleSuccess(stream) {
+  const video = document.querySelector('video');
+  const videoTracks = stream.getVideoTracks();
+  console.log('Got stream with constraints:', constraints);
+  console.log(`Using video device: ${videoTracks[0].label}`);
+  window.stream = stream; // make variable available to browser console
+  video.srcObject = stream;
+}
 
-    // navigator.getUserMedia  и   window.URL.createObjectURL (смутные времена браузерных противоречий 2012)
-    navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
-    window.URL.createObjectURL = window.URL.createObjectURL || window.URL.webkitCreateObjectURL || window.URL.mozCreateObjectURL || window.URL.msCreateObjectURL;
+function handleError(error) {
+  if (error.name === 'ConstraintNotSatisfiedError') {
+    const v = constraints.video;
+    errorMsg(`The resolution ${v.width.exact}x${v.height.exact} px is not supported by your device.`);
+  } else if (error.name === 'PermissionDeniedError') {
+    errorMsg('Permissions have not been granted to use your camera and ' +
+      'microphone, you need to allow the page access to your devices in ' +
+      'order for the demo to work.');
+  }
+  errorMsg(`getUserMedia error: ${error.name}`, error);
+}
 
-    // запрашиваем разрешение на доступ к поточному видео камеры
-    navigator.getUserMedia({video: true}, function (stream) {
-      // разрешение от пользователя получено
-      // скрываем подсказку
-      allow.style.display = "none";
-      // получаем url поточного видео
-      videoStreamUrl = window.URL.createObjectURL(stream);
-      // устанавливаем как источник для video 
-      video.src = videoStreamUrl;
-    }, function () {
-      console.log('что-то не так с видеостримом или пользователь запретил его использовать :P');
-    });
-  };
+function errorMsg(msg, error) {
+  const errorElement = document.querySelector('#errorMsg');
+  errorElement.innerHTML += `<p>${msg}</p>`;
+  if (typeof error !== 'undefined') {
+    console.error(error);
+  }
+}
+
+async function init(e) {
+  try {
+    const stream = await navigator.mediaDevices.getUserMedia(constraints);
+    handleSuccess(stream);
+    e.target.disabled = true;
+  } catch (e) {
+    handleError(e);
+  }
+}
+
+document.querySelector('#showVideo').addEventListener('click', e => init(e));
